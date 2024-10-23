@@ -11,12 +11,13 @@
     
     <div class="grid-container">
         <% for (let i = 0; i < restaurants.length; i++) { %>    <!-- Loop through the restaurant data passed from backend -->
-            <div class="grid-item" id="restaurant-<%= i %>">  <!-- assigns id to each of the restaurant generated -->
+            <div class="grid-item" id="restaurants-<%= i %>">  <!-- assigns id to each of the restaurant generated -->
                 <img src="<%= restaurants[i].photo %>">    <!-- iterates through the data for photos -->
                 <p><%= restaurants[i].name %><br>        
                     <br><%= restaurants[i].address %><br>
                     <br><%= restaurants[i].phone %></p>
-                <button class="delete-btn" onclick="deleteRestaurantCard('<%= i %>')">X</button>    
+                    <button class="delete-btn" id="<%= restaurants[i].id %>">X</button>
+
                 <!-- delete button (an X) assigns an index to it for easy deletion of the "grid-item" -->
             </div>
         <% } %>

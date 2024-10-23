@@ -1,6 +1,4 @@
-// Fill this in
-
-let restaurantData = [  //rendering the existing restaurant data as restaurantData
+let restaurantData = [      //data array initialization 
     {
         id: 0,
         name: "Nasi Kandar Pelita",
@@ -59,46 +57,45 @@ let restaurantData = [  //rendering the existing restaurant data as restaurantDa
     },
     {
         id: 8,
-        name: "Lim Fried",
+        name: "Lim Fried", 
         phone: "+60 17-316 3287",
         address: "14, Jalan SS2/10, SS2, Petaling Jaya",
         photo: "/images/limFried.jpg"
     }
 ];
 
-let lastId = restaurantData.length;
+let currentId = restaurantData.length; //keeps track of current restaurant id  
+const nextId = () => {  
+    currentId += 1; //keep track of next id 
+    return currentId;
+};
 
-const getNextId = () => {
-    lastId += 1;
-    return lastId;
-}
-
-// Get a list of restaurants
-const getRestaurants = () => {
+const getRestaurants = () => {     //get a list of restaurants 
     return restaurantData;
 };
 
-
-// Get a restaurant by id
-const getRestaurant = (id) => {
+const getRestaurant = (id) => { //get restaurant by its id
     return restaurantData.find(restaurant => restaurant.id === id);
 };
 
-// Create a new restaurant entry
-const createRestaurant = (data) => {
+const createRestaurant = (data) => {    //creating a new restaurant entry 
     const newRestaurant = {
-        id: nextId(),
-        ...data
+        id: nextId(),   //next id for restaurant obj 
+        ...data 
     };
-    restaurantData.push(newRestaurant);
+    //console.log(data) 
+    restaurantData.push(newRestaurant);     //pushes new restaurant obj into the array
     return newRestaurant;
 };
 
-
-// Delete a restaurant by id
-const deleteRestaurant = (id) => {
+const deleteRestaurant = (id) => {  //fucntion to delete a restaurant 
+    const restaurantToDelete = restaurantData.find(restaurant => restaurant.id === id);
+    if (!restaurantToDelete) {
+        throw Error(`Restaurant with id ${id} not found!`);
+    }
+    //filter out the restaurant to delete from the restaurant array
     restaurantData = restaurantData.filter(restaurant => restaurant.id !== id);
-    return restaurantData;    
+    return restaurantToDelete;
 };
-export { createRestaurant, deleteRestaurant, getRestaurant, getRestaurants, restaurantData };
 
+export { createRestaurant, deleteRestaurant, getRestaurant, getRestaurants};

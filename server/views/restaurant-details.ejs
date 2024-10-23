@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title><%= restaurant.name %> - Details</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/restaurant-details-styles.css"> <!-- Reference to the specific CSS file for details -->
+    <title>Kuala Lumpur</title>
+    <link rel="icon" type="image/svg" href="/images/icon.svg">
+    <link rel="stylesheet" href="/restaurant-details-styles.css">
 </head>
 <body>
-    <header></header>
-    <nav></nav>
-    
-    <div class="restaurant-details">
-        <h1><%= restaurant.name %></h1>
-        <div class= "restaurant-details-context"
-        <img source= "restaurant-details-img" src="<%= restaurant.photo %>">">
-        <p><strong>Address:</strong> <%= restaurant.address %></p>
-        <p><strong>Phone:</strong> <%= restaurant.phone %></p>
+    <div class="restaurant-details-container">
+        <header></header>
+        <nav></nav>
+        <div class="restaurant-details">
+            <h1><%= restaurant.name %></h1>
+            <div class="restaurant-details-context">
+                <img class="restaurant-details-img" src="<%= restaurant.photo %>">
+                <br><p>Address: <%= restaurant.address %></p><br>
+                <p>Phone: <%= restaurant.phone %></p>
+            </div>
+        </div>
+        <footer></footer>
     </div>
-
-    <footer></footer>
     <script src="/scripts/header.js"></script>
 </body>
 </html>

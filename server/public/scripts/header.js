@@ -12,8 +12,8 @@ headerElement.innerHTML =
 //navigation links
 navElement.innerHTML = 
 `<a href="/">Home</a>
-<a href="attractions">Attractions</a>
-<a href="restaurants">Restaurants</a>
+<a href="/attractions">Attractions</a>
+<a href="/restaurants">Restaurants</a>
 <a href="/new-restaurant">New Restaurant</a>`;
 
 //populating footer links
